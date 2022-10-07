@@ -1,3 +1,4 @@
+
 #include <iostream>
 
 using namespace std;
@@ -64,11 +65,12 @@ int length(struct node *top)
     return l;
 }
 
+
 int main()
 {
     struct node *top;
     int n;
-    int x,y;
+    int x,y,pos;
     int a;
     cout<<"Enter how many elemnt you want to create on stack: "<<endl;
     cin>>n;
@@ -83,9 +85,12 @@ int main()
     top=pop(top,a);
     output(top);
     cout<<endl<<"Element you Deleted "<<a;
+    cout<<endl<<"Lenght of stack:"<<length(top);
+    
     return 0;
-    cout<<length(top);
-  //  insert(top,y);
 }
+	
+	
+
 	
 	
