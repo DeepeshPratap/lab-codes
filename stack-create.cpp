@@ -22,12 +22,12 @@ struct node *create(struct node *top,int n)
 }
 void output(struct node *top)
 {
-    cout<<"stack->";
+    cout<<"stack:";
     struct node *p;
     p=top;
     do
     {
-        cout<<p->data<<endl;
+        cout<<p->data<<"->";
         p=p->link;
     }while(p!=NULL);
 }
@@ -51,26 +51,41 @@ node *pop(struct node *top,int &a)
     return top;
    
 }
-
+int length(struct node *top)
+{
+    struct node *p;
+    p=top;
+    int l=0;
+    do{
+        p=p->link;
+        l++;
+    }
+    while(p!=NULL);
+    return l;
+}
 
 int main()
 {
     struct node *top;
     int n;
-    int x;
+    int x,y;
     int a;
+    cout<<"Enter how many elemnt you want to create on stack: "<<endl;
     cin>>n;
+    cout<<"Enter Elements:"<<endl;
     top=create(top,n);
     output(top);
-    cout<<"Enter value want to PUSH"<<endl;
+    cout<<endl<<"Enter value want to PUSH"<<endl;
     cin>>x;
     top=push(top,x);
     output(top);
-    cout<<"After poping ";
+    cout<<endl<<"After poping ";
     top=pop(top,a);
     output(top);
-    cout<<"Element you Deleted "<<a;
+    cout<<endl<<"Element you Deleted "<<a;
     return 0;
+    cout<<length(top);
+  //  insert(top,y);
 }
 	
 	
