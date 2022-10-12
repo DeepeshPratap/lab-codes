@@ -1,0 +1,108 @@
+#include<iostream>
+#define maxsize 100
+using namespace std;
+int rear;
+int front;
+int queue[maxsize];
+int isfull()
+{
+    if(rear==maxsize-1)
+        return 1;
+    else
+        return 0;
+}
+int isempty()
+{
+    if(front==-1)
+        return 1;
+    else
+        return 0;
+
+}
+void enqueue(int x)
+{
+    if(isfull())
+        {
+            cout<<"OVERFLOW";
+            return ;
+        }
+    else if(front==-1 && rear==-1)
+        {
+            front=rear=0;
+            queue[rear]=x;
+        }
+    else
+        {
+            rear=rear+1;
+            queue[rear]=x;
+        }
+
+}
+int dequeue()
+{
+    int x;
+    if(isempty())
+        {
+            cout<<"UNDERFLOW"<<endl;
+            return -1999;
+        }
+    else if(front==rear)
+        {
+            x=queue[front];
+            front=rear=-1;
+            return x;
+        }
+    else
+        {
+            x=queue[front];
+            front=front+1;
+            return x;
+        }
+
+}
+int first()
+{
+    if(isempty())
+    {
+        cout<<"Empty";
+    }
+    else
+    return queue[front];
+}
+int last()
+{
+    return queue[rear];
+}
+void output()
+{
+    if(isempty())
+    {
+        cout<<"Empty";
+        return ;
+    }
+    else
+    {
+
+    for(int i=front;i<=rear;i++)
+    {
+     cout<<queue[i]<<" ";
+    }
+    cout<<endl;
+    }
+}
+int main()
+{
+    front=rear=-1;
+    cout<<"Lets start queue"<<endl;
+    enqueue(10);
+    enqueue(20);
+    enqueue(30);
+    enqueue(40);
+    output();
+    dequeue();
+    dequeue();
+    output();
+    cout<<"FIRST ELSEMENT:"<<first()<<endl;
+    cout<<"LAST ELSEMENT:"<<last();
+
+}
