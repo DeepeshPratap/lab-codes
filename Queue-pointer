@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+struct node
+{
+    int data;
+    node *link;
+};
+int isfull(node *front, node *rear)
+{
+	node *temp=new node;
+	if(temp!=NULL)
+			return 1;
+	else
+			return 0;
+}
+int isempty(node *front,node *rear)
+{
+	if(rear=front=NULL)
+		return 1;
+	else
+		return 0;
+	
+}
+node *enqueue(node *&front,node *rear,int x)
+{
+	
+	if(isfull());
+	{
+		cout<<"OVERFLOW";
+		exit(1);
+	}
+	else if(front==NULL && rear==NULL)
+	{
+		node *temp=new node;
+		temp->data=x;
+		temp->link=NULL;
+		front=rear=temp;
+		return rear;
+	}
+	else
+	node *temp=new node;
+	temp->data=x;
+	temp->link=NULL;
+	rear->link=temp;
+	rear=temp;
+	return rear;
+	
+}
+int dequeue(node *front, node *temp )
+{
+	int x;
+	if(isempty())
+	{
+		cout<<"UNDERFLOW";
+	}
+	else if(front=rear)
+	{
+		x=temp->data;
+		front=rear=NULL;
+		return front;
+	}
+	else
+	{
+		x=temp->data;
+		front=front->link;
+		return front;
+	}
+		
+}
+void output(node *front,node *rear)
+{
+	if(isempty())
+	cout<<"Queue is empty";
+	else
+	{
+		while(front!=NULL)
+		cout<<front->data;	
+	}
+}
+
+int main() {
+	node *front,*rear;
+	front=rear=NULL;
+    rear=enqueue(front,rear,10);
+    return 0;
+}
