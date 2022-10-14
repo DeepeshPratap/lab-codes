@@ -24,7 +24,7 @@ int isempty(node *front,node *rear)
 node *enqueue(node *&front,node *rear,int x)
 {
 	
-	if(isfull());
+	if(isfull(front,rear))
 	{
 		cout<<"OVERFLOW";
 		exit(1);
@@ -38,38 +38,40 @@ node *enqueue(node *&front,node *rear,int x)
 		return rear;
 	}
 	else
-	node *temp=new node;
-	temp->data=x;
-	temp->link=NULL;
-	rear->link=temp;
-	rear=temp;
-	return rear;
-	
+	{
+	    node *temp=new node;
+	    temp->data=x;
+	    temp->link=NULL;
+	    rear->link=temp;
+	    rear=temp;
+	    return rear;
+	}
 }
-int dequeue(node *front, node *temp )
+node  *dequeue(node *front, node *rear )
 {
 	int x;
-	if(isempty())
+	if(isempty(front,rear))
 	{
 		cout<<"UNDERFLOW";
 	}
 	else if(front=rear)
 	{
+	    node *temp;
 		x=temp->data;
 		front=rear=NULL;
-		return front;
 	}
 	else
 	{
+	    node *temp;
 		x=temp->data;
 		front=front->link;
-		return front;
-	}
 		
+	}
+	return front;	
 }
 void output(node *front,node *rear)
 {
-	if(isempty())
+	if(isempty(front,rear))
 	cout<<"Queue is empty";
 	else
 	{
