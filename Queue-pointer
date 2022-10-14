@@ -9,9 +9,13 @@ int isfull(node *front, node *rear)
 {
 	node *temp=new node;
 	if(temp!=NULL)
-			return 1;
-	else
+	{
+	        delete temp;
+	        temp=NULL;
 			return 0;
+	}
+	else
+			return 1;
 }
 int isempty(node *front,node *rear)
 {
@@ -76,13 +80,17 @@ void output(node *front,node *rear)
 	else
 	{
 		while(front!=NULL)
-		cout<<front->data;	
+		{
+		cout<<front->data;
+		front=front->link;
+	    	}
 	}
 }
 
 int main() {
 	node *front,*rear;
 	front=rear=NULL;
-    rear=enqueue(front,rear,10);
+    rear=enqueue(front,rear,1);
+    output(front,rear);
     return 0;
 }
