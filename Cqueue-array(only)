@@ -1,0 +1,32 @@
+//Complition Status-15%
+
+
+#inclide<iostream>
+define maxsize 6
+int front,rear;
+int Cqueue[maxsize];
+using namespace std;
+void enqueue(int x)
+{
+    if(isfull())
+    {
+        cout<<"OVERFLOW";
+    }
+    else if(front==-1 && rear==-1)
+    {
+        front=rear=0;
+        queue[rear]=x;
+    }
+    else
+    {
+        rear=(rear+1)%maxsize;
+        queue[rear]=x;
+    }
+}
+}
+int main()
+{
+    front=rear=-1;
+    enqueue(10);
+    
+}
